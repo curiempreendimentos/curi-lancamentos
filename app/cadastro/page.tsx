@@ -55,7 +55,7 @@ export default function CadastroPage() {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-xl font-medium text-gray-900">Solicitação de participação</h1>
-          <p className="text-sm text-gray-500 mt-1">Lançamento Aurora Igarapé · Curi Empreendimentos</p>
+          <p className="text-sm text-gray-500 mt-1">Curi Empreendimentos</p>
         </div>
 
         <div className="bg-white border border-gray-100 rounded-xl p-6 mb-4">
