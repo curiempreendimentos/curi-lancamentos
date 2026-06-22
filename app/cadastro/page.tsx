@@ -31,10 +31,15 @@ export default function CadastroPage() {
         body: JSON.stringify({
           imobiliaria: form,
           corretores: corretores.filter(c => c.nome && c.email),
-          empreendimento_id: process.env.NEXT_PUBLIC_EMPREENDIMENTO_ID,
+          empreendimento_id: process.env.NEXT_PUBLIC_EMPREENDIMENTO_ID || 'd8346eff-86f5-4e52-b5ab-9e6efc61703a',
         })
       })
-      if (res.ok) setEnviado(true)
+      if (res.ok) {
+        setEnviado(true)
+      } else {
+        const err = await res.json()
+        alert('Erro ao enviar: ' + (err.error || 'Tente novamente'))
+      }
     } finally {
       setLoading(false)
     }
