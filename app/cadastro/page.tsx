@@ -11,6 +11,11 @@ export default function CadastroPage() {
     setCorretores([...corretores, { nome: '', creci: '', email: '' }])
   }
 
+  function removeCorretor(i: number) {
+    if (corretores.length === 1) return
+    setCorretores(corretores.filter((_, idx) => idx !== i))
+  }
+
   function updateCorretor(i: number, campo: string, valor: string) {
     const novos = [...corretores]
     novos[i] = { ...novos[i], [campo]: valor }
@@ -81,13 +86,17 @@ export default function CadastroPage() {
           <h2 className="text-sm font-medium text-gray-700 mb-1">Corretores que vão atuar</h2>
           <p className="text-xs text-gray-400 mb-4">Cada corretor receberá login e senha por email após aprovação.</p>
           {corretores.map((c, i) => (
-            <div key={i} className="flex gap-2 mb-2">
+            <div key={i} className="flex gap-2 mb-2 items-center">
               <input placeholder="Nome" value={c.nome} onChange={e => updateCorretor(i, 'nome', e.target.value)}
                 className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-400" />
               <input placeholder="CRECI" value={c.creci} onChange={e => updateCorretor(i, 'creci', e.target.value)}
                 className="w-28 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-400" />
               <input placeholder="Email" value={c.email} onChange={e => updateCorretor(i, 'email', e.target.value)}
                 className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-400" />
+              <button onClick={() => removeCorretor(i)} disabled={corretores.length === 1}
+                className="text-gray-400 hover:text-red-500 disabled:opacity-20 px-1 text-lg leading-none flex-shrink-0" title="Remover corretor">
+                ✕
+              </button>
             </div>
           ))}
           <button onClick={addCorretor} className="text-xs text-gray-500 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 mt-1">
