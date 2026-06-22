@@ -42,7 +42,7 @@ export default function AdminPage() {
       <div className="bg-white border-b px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-lg font-medium text-gray-900">Curi Lançamentos</h1>
-          <p className="text-sm text-gray-500">Painel admin — Aurora Igarapé</p>
+          <p className="text-sm text-gray-500">Painel admin</p>
         </div>
         <a href="/cadastro" className="text-sm text-blue-600 border border-blue-200 rounded-lg px-3 py-1.5 hover:bg-blue-50">
           + Link cadastro imobiliária
